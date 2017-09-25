@@ -5,5 +5,5 @@ public interface IGame {
     void StartGame(int NumberOfPlayers);
     void ChangeRound();
     void ChangePlayer();
-    void ChooseWinner(Player[] players);
+    void ChooseWinner(IPlayer[] players);
 }
