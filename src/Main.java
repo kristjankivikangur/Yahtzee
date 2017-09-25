@@ -4,5 +4,6 @@ public class Main {
         System.out.println("Tere 3TAR(e)");
 
         System.out.println("Mina olen Karl!");
+        
     }
 }
