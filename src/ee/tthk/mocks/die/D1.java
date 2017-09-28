@@ -8,4 +8,8 @@ public class D1 implements IDie {
     public int Roll() {
         return 1;
     }
+
+    public int GetTulemus() {
+        return 1;
+    }
 }
