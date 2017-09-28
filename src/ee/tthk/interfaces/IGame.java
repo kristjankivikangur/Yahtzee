@@ -22,7 +22,7 @@ public interface IGame {
 
     /**
      * Chooses the winner of the game after all the rounds have been played
-     * @param players - A player
+     * @param players - An array of player
      */
     void ChooseWinner(IPlayer[] players);
 }
