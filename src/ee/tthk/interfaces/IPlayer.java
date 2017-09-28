@@ -9,15 +9,13 @@ public interface IPlayer {
      *
      * @param name - name that the player wants.
      * */
-    void AddName(String name);
+    void SetName(String name);
 
 
     /**
-     * Sets a scoreboard for the player.
-     *
-     * @param scoreboard - scoreboard that the player will be set.
+     * Returns the player's name.
      * */
-    void SetScoreBoard(IScoreBoard scoreboard);
+    String GetName();
 
 
     /**
@@ -25,7 +23,7 @@ public interface IPlayer {
      *
      * @return - returns the scoreboard
      * */
-    void GetScoreBoard();
+    IScoreBoard GetScoreBoard();
 
 
     /**
