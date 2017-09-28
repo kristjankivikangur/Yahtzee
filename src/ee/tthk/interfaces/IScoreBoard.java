@@ -1,3 +1,5 @@
+package ee.tthk.interfaces;
+
 /**
  * Created by opilane on 25.09.2017.
  */
@@ -5,9 +7,9 @@ public interface IScoreBoard
 {
     /**
      * Kontrollib võimalikud täringukombinatsioonid läbi ning annab kasutajale valida, kuhu lahtrisse punktid panna.
-     * @param line
+     * @param line - reanumben, mille kasutaja valis tabelisse kandmiseks
      */
-    public void UsersChoice (int line);
+    void UsersChoice (int line);
 
 
 
@@ -15,10 +17,10 @@ public interface IScoreBoard
      * Liidab tulba ülemise poole summad kokku (Ühed, kahed, kolmed jne)
      -  Kui summa on 63 või rohkem, siis liidetakse tulemusele 35 punkti.
      -  private
-     * @return
+     * @return - tagastab ülemise skoori summa
      */
 
-    public int UpperScoreBoard ();
+    int UpperScoreBoard ();
 
 
 
@@ -26,18 +28,18 @@ public interface IScoreBoard
      * Liidab tulba ülemise poole summad kokku (Ühed, kahed, kolmed jne)
      -  Kui mängija saab mängu jooksul 2 ühe täringupildiga kombinatsiooni, liidetakse
      talle boonuseks 100 punkti.
-     * @return
+     * @return - tagastab alumise skoori summa
      */
 
-    public int LowerScoreBoard ();
+    int LowerScoreBoard ();
 
 
 
     /**
      * Liidetakse UlemineLopuSkoor ja AlumineLopuSkoor kokku
-     * @return
+     * @return - tagastab kogusumma.
      */
 
-    public  int GrandTotal ();
+     int GrandTotal ();
 
 }

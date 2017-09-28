@@ -1,3 +1,5 @@
+package ee.tthk.interfaces;
+
 /**
  * Created by opilane on 25.09.2017.
  */
@@ -6,19 +8,19 @@ public interface IRound {
     /**
      * Rolls a new value for each die in the given array.
      *
-     * @param dice
+     * @param dice - täringute hulk
      */
-    public void roll(IDie[] dice);
+    void roll(IDie[] dice);
 
     /**
      * Gives an option for the player to keep some of the dice.
      *
-     * @param dice
+     * @param dice - täringute hulk, milliste väärtused säilitada
      */
-    public void keepDice(IDie[] dice);
+    void keepDice(IDie[] dice);
 
     /**
      * Starts the round for a player.
      */
-    public void start(IPlayer player);
+    void start(IPlayer player);
 }

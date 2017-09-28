@@ -1,3 +1,5 @@
+package ee.tthk.interfaces;
+
 public interface IMisiganes {
     void Hello();
     int Count(IDie[] dice);
