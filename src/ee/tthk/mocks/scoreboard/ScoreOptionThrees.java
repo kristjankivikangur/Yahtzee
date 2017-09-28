@@ -5,16 +5,16 @@ import ee.tthk.interfaces.IScoreOption;
 /**
  * Created by opilane on 28.09.2017.
  */
-public class ScoreOptionOnes implements IScoreOption
+public class ScoreOptionThrees implements IScoreOption
 {
 
     @Override
     public String getName() {
-        return "ones";
+        return "threes";
     }
 
     @Override
     public int getValue() {
-        return 5;
+        return 15;
     }
 }
