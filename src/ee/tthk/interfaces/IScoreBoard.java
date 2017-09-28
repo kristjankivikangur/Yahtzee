@@ -19,7 +19,7 @@ public interface IScoreBoard
 
     /**
      * Kontrollib võimalikud täringukombinatsioonid läbi ning annab kasutajale valida, kuhu lahtrisse punktid panna.
-     * @param line - reanumben, mille kasutaja valis tabelisse kandmiseks
+     * @param line - reanumber, mille kasutaja valis tabelisse kandmiseks
      */
     void UsersChoice (int line);
 
