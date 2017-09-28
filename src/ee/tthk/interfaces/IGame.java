@@ -6,7 +6,7 @@ package ee.tthk.interfaces;
 public interface IGame {
     /**
      * Asks the player for the number of players and then calls out the Player class for it to give them names
-     * @param NumberOfPlayers
+     * @param NumberOfPlayers - The number of players
      */
     void StartGame(int NumberOfPlayers);
 
@@ -22,7 +22,7 @@ public interface IGame {
 
     /**
      * Chooses the winner of the game after all the rounds have been played
-     * @param players
+     * @param players - A player
      */
     void ChooseWinner(IPlayer[] players);
 }
