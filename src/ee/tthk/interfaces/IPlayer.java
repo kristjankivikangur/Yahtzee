@@ -1,8 +1,28 @@
 package ee.tthk.interfaces;
 
-/**
- * Created by opilane on 25.09.2017.
- */
+
 public interface IPlayer {
-    void AddName(String name);
+
+
+    /**
+     * Sets the player's name.
+     *
+     * @param name - name that the player wants.
+     * */
+    void SetName(String name);
+
+
+    /**
+     * Returns the player's name.
+     * */
+    String GetName();
+
+
+    /**
+     * Returns the player's scoreboard for data checking etc.
+     *
+     * @return - returns the scoreboard
+     * */
+    IScoreBoard GetScoreBoard();
+
 }

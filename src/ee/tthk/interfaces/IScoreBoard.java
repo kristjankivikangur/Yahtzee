@@ -1,13 +1,25 @@
 package ee.tthk.interfaces;
 
+import java.util.List;
+
 /**
  * Created by opilane on 25.09.2017.
  */
 public interface IScoreBoard
 {
     /**
+     * Annab kasutajale valikud kust ta saab valida kuhu oma soovitad täringu summa lisada.
+     * valikus on kõik read, kus pole veel tulemust kirjas. rea summa võib olla ka null
+     */
+
+
+    List<IScoreOption> GetOptions(IDie[] Dice);
+
+
+
+    /**
      * Kontrollib võimalikud täringukombinatsioonid läbi ning annab kasutajale valida, kuhu lahtrisse punktid panna.
-     * @param line - reanumben, mille kasutaja valis tabelisse kandmiseks
+     * @param line - reanumber, mille kasutaja valis tabelisse kandmiseks
      */
     void UsersChoice (int line);
 
