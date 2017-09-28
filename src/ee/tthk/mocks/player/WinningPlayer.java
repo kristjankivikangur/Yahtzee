@@ -3,6 +3,7 @@ package ee.tthk.mocks.player;
 
 import ee.tthk.interfaces.IPlayer;
 import ee.tthk.interfaces.IScoreBoard;
+import ee.tthk.mocks.scoreboard.ScoreUpperLowerDoneHigh;
 
 public class WinningPlayer implements IPlayer{
 
@@ -10,7 +11,7 @@ public class WinningPlayer implements IPlayer{
     private IScoreBoard playerScoreBoard;
 
     public WinningPlayer(){
-        playerScoreBoard = new winningScoreBoard();
+        playerScoreBoard = new ScoreUpperLowerDoneHigh();
 
     }
 
@@ -30,8 +31,5 @@ public class WinningPlayer implements IPlayer{
         return playerScoreBoard;
     }
 
-    @Override
-    public int GetScoreBoardTotal() {
-        return 0;
-    }
+
 }

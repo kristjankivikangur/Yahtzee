@@ -25,11 +25,4 @@ public interface IPlayer {
      * */
     IScoreBoard GetScoreBoard();
 
-
-    /**
-     * Returns the player's total score from the scoreboard.
-     *
-     * @return - returns totalScore
-     * */
-    int GetScoreBoardTotal();
 }
