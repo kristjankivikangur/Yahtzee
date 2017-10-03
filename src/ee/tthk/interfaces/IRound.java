@@ -10,6 +10,7 @@ public interface IRound {
      *
      * @param dice - täringute hulk
      */
+
     void roll(IDie[] dice);
 
     /**
