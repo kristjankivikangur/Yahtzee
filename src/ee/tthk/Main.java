@@ -1,16 +1,28 @@
 package ee.tthk;
 
+import ee.tthk.impls.game.Game;
+
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args){
-        System.out.println("Hello World");
-        System.out.println("Tere 3TAR(e)");
-        System.out.println("marc");
-        System.out.println("Mina olen Karl!");
-        System.out.println("Tere Rait Lauriku poolt");
-        System.out.println("Tere by Enrico.");
-        System.out.println("Tervitused Õpetajalt");
-        System.out.println("Tere Jakob Sutt");
-        System.out.println("Tere Tomy");
-        System.out.println("Tere Oliver!");
+
+        System.out.println("Enter the number of players:");
+        Scanner NrOfPlayers = new Scanner(System.in);
+
+        if (NrOfPlayers.hasNextInt()){
+            int result = Integer.parseInt(NrOfPlayers.next());
+            if (result <= 0){
+                System.out.println("ERROR: Yahtzee can be played by minimum 1 player(s).");
+            }
+            else{
+                System.out.println("Number of players: " + result);
+                Game game = new Game();
+                game.StartGame(result);
+            }
+        }
+        else {
+            System.out.println("Input must be an int");
+        }
     }
 }
