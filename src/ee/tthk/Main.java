@@ -1,12 +1,13 @@
 package ee.tthk;
 
 import ee.tthk.impls.game.Game;
-
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args){
-
+        Game game = new Game();
+        game.StartGame(2);
+        //game.ChooseWinner();
         System.out.println("Enter the number of players:");
         Scanner NrOfPlayers = new Scanner(System.in);
 
@@ -17,12 +18,11 @@ public class Main {
             }
             else{
                 System.out.println("Number of players: " + result);
-                Game game = new Game();
                 game.StartGame(result);
             }
         }
         else {
-            System.out.println("Input must be an int");
+            System.out.println("ERROR: Input must be a number");
         }
     }
 }
