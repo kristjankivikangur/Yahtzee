@@ -1,8 +1,10 @@
 package ee.tthk.impls.die;
 
+import ee.tthk.interfaces.IDie;
+
 import java.util.Random;
 
-public class Die {
+public class Die implements IDie {
     int tulemus;
     public int Roll(){
         Random random = new Random();
@@ -10,7 +12,9 @@ public class Die {
         return tulemus;
     }
 
-    public int getTulemus() {
+    @Override
+    public int GetTulemus() {
         return tulemus;
     }
+
 }
