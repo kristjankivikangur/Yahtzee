@@ -5,4 +5,5 @@ package ee.tthk.interfaces;
  */
 public interface IDie {
     int Roll();
+    int GetTulemus();
 }
