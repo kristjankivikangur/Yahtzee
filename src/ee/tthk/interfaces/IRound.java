@@ -1,7 +1,5 @@
 package ee.tthk.interfaces;
 
-import java.util.Map;
-
 /**
  * Created by opilane on 25.09.2017.
  */
@@ -24,5 +22,5 @@ public interface IRound {
     /**
      * Starts the round for a player.
      */
-    void start(Map players);
+    void start(IPlayer player);
 }

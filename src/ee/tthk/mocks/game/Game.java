@@ -9,22 +9,22 @@ import java.util.Map;
  */
 public class Game implements IGame {
     @Override
-    public void StartGame(int NumberOfPlayers,Map<String,Integer> players) {
+    public void StartGame(int NumberOfPlayers) {
 
     }
 
     @Override
-    public void ChangeRound(Map<String,Integer> players) {
+    public void ChangeRound() {
 
     }
 
     @Override
-    public void ChangePlayer(Map<String,Integer> players) {
+    public void ChangePlayer() {
 
     }
 
     @Override
-    public void ChooseWinner(Map<String, Integer> players) {
+    public void ChooseWinner() {
 
     }
 }

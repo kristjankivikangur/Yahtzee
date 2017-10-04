@@ -8,7 +8,7 @@ public interface IPlayer {
      * Returns the player's name.
      *
      * */
-    String SetName();
+    void SetName(String name);
 
 
     /**
