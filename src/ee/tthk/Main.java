@@ -2,20 +2,11 @@ package ee.tthk;
 
 import ee.tthk.impls.game.Game;
 
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args){
         Game game = new Game();
-        Map<String,Integer> players2 = new LinkedHashMap<String,Integer>();
-        players2.put("Tomy",45);
-        players2.put("Karl",12);
-        game.ChangePlayer(players2);
-        game.StartGame(2,players2);
-        game.ChooseWinner(players2);
         System.out.println("Enter the number of players:");
         Scanner NrOfPlayers = new Scanner(System.in);
 
@@ -26,7 +17,7 @@ public class Main {
             }
             else{
                 System.out.println("Number of players: " + result);
-                game.StartGame(result,players2);
+                game.StartGame(result);
             }
         }
         else {
