@@ -8,7 +8,6 @@ import ee.tthk.mocks.round.Round;
  * Created by opilane on 03.10.2017.
  */
 public class Game implements IGame {
-    int CurrentRounds = 1;
     int CurrentPlayer = 0;
     int NrOfPlayers;
     Round round = new Round();
@@ -22,22 +21,19 @@ public class Game implements IGame {
             players[i]=new Player();
             players[i].GetName();
         }
-        ChangeRound();
+        for (int i = 13; i <= 13; i++){
+            ChangeRound();
+        }
+        ChooseWinner();
     }
 
     @Override
     public void ChangeRound() {
-        if (CurrentRounds > 13){
-            if (CurrentPlayer < NrOfPlayers){
-                ChangePlayer();
-            }
-            else {
-                CurrentPlayer = 1;
-                round.start(players[0]);
-            }
-        }
-        else {
-            ChooseWinner();
+        if (CurrentPlayer < NrOfPlayers) {
+            ChangePlayer();
+        } else {
+            CurrentPlayer = 1;
+            round.start(players[0]);
         }
     }
 
