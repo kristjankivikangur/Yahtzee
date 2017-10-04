@@ -33,13 +33,16 @@ public class ScoreBoard implements IScoreBoard{
 
     @Override
     public List<IScoreOption> GetOptions(IDie[] Dice) {
-        /*Available=null;
+        Available=null;
+        Available.add(new ScoreOption("Ones",CalculateOnes(Dice)));
 
-            Available.add(new ScoreOption("Ones",CalculateOnes(Dice)));
-
-
-*/
         return null;
+
+    }
+
+    private int CalculateOnes(IDie[] dice)
+    {
+        return 0;
     }
 
     @Override
@@ -55,17 +58,34 @@ public class ScoreBoard implements IScoreBoard{
             return UpperScoreTemp+50;
         }
         return UpperScoreTemp;*/
-        return 0;
+
+        Integer UpperSum = 0;
+        for (Integer j : Scores.values())
+        {
+            UpperSum += j;
+            if (UpperSum >= 63)
+            {
+                return UpperSum + 50;
+            }
+            return UpperSum;
+        }
+        return UpperSum;
     }
 
     @Override
-    public int LowerScoreBoard() {
-        /*return ThreeOfAKind+FourOfAKind+FullHouse+LargeStraight+SmallStraight+Yahtzee;*/
-        return 0;
+    public int LowerScoreBoard()
+    {
+        Integer LowerSum = 0;
+        for (Integer k : Scores.values())
+        {
+            LowerSum += k;
+        }
+        return LowerSum;
     }
 
     @Override
-    public int GrandTotal() {
+    public int GrandTotal()
+    {
         return UpperScoreBoard() + LowerScoreBoard();
     }
 }
