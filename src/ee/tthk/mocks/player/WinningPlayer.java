@@ -9,6 +9,7 @@ public class WinningPlayer implements IPlayer{
 
     private String PlayerName;
     private IScoreBoard playerScoreBoard;
+    private String name;
 
     public WinningPlayer(){
         playerScoreBoard = new ScoreUpperLowerDoneHigh();
@@ -17,8 +18,8 @@ public class WinningPlayer implements IPlayer{
 
 
     @Override
-    public void SetName(String name) {
-        PlayerName = name;
+    public String SetName() {
+        return PlayerName = name;
     }
 
     @Override

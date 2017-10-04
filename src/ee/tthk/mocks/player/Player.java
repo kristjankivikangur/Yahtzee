@@ -7,9 +7,10 @@ import ee.tthk.interfaces.IScoreBoard;
  * Created by opilane on 04.10.2017.
  */
 public class Player implements IPlayer {
+    String name;
     @Override
-    public void SetName(String name) {
-
+    public String SetName() {
+        return name;
     }
 
     @Override
