@@ -5,11 +5,10 @@ public interface IPlayer {
 
 
     /**
-     * Sets the player's name.
+     * Returns the player's name.
      *
-     * @param name - name that the player wants.
      * */
-    void SetName(String name);
+    String SetName();
 
 
     /**
