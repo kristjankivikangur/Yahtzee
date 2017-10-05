@@ -14,7 +14,8 @@ import java.util.Scanner;
  */
 public class Round implements IRound {
 
-    private List<IDie> diceInhand;
+    private int rolls;
+    private List<IDie> diceInHand;
     private IPlayer currentPlayer;
 
     public void roll(List<IDie> dice)
@@ -29,6 +30,7 @@ public class Round implements IRound {
         {
             dice.get(i).Roll();
         }
+        rolls++;
     }
 
     public void keepDice(List<IDie> dice)
@@ -42,9 +44,9 @@ public class Round implements IRound {
             System.out.print("\n");
 
             System.out.print("Your dice are: ");
-            for (int i = 0; i < diceInhand.size(); i++) {
-                if (diceInhand.get(i) != null) {
-                    System.out.print(diceInhand.get(i).GetTulemus() + ", ");
+            for (int i = 0; i < diceInHand.size(); i++) {
+                if (diceInHand.get(i) != null) {
+                    System.out.print(diceInHand.get(i).GetTulemus() + ", ");
                 }
             }
             System.out.print("\n");
@@ -52,7 +54,11 @@ public class Round implements IRound {
             System.out.println("Options:");
             System.out.println("1 - Choose dice to keep");
             System.out.println("2 - Choose dice to return");
-            System.out.println("3 - Do nothing");
+            if (rolls != 3) {
+                System.out.println("3 - Roll again");
+            } else {
+                System.out.println("3 - Do nothing");
+            }
 
             System.out.print("Enter option: ");
             Scanner in = new Scanner(System.in);
@@ -60,35 +66,28 @@ public class Round implements IRound {
             int option = in.nextInt();
             switch (option) {
                 case 1:
-                    System.out.print("Choose dice to keep: ");
-                    String keepLine = in.next();
-                    String[] s = keepLine.split(",");
-                    test: for (int i = 0; i < s.length; i++) {
+                case 2:
+                    System.out.print("Choose dice to " + ((option == 1) ? "keep: " : "return: "));
+                    String line = in.next();
+                    String[] s = line.split(",");
+                    diceLoop: for (int i = 0; i < s.length; i++) {
                         int value = Integer.parseInt(s[i].trim());
                         if (value >= 1 && value <= 6) {
-                            for (int j = 0; j < dice.size(); j++) {
-                                IDie die = dice.get(j);
-                                if (value == die.GetTulemus()) {
-                                    diceInhand.add(die);
-                                    dice.remove(die);
-                                    continue test;
+                            if (option == 1) {
+                                for (IDie die : dice) {
+                                    if (value == die.GetTulemus()) {
+                                        diceInHand.add(die);
+                                        dice.remove(die);
+                                        continue diceLoop;
+                                    }
                                 }
-                            }
-                        }
-                    }
-                    break;
-                case 2:
-                    System.out.print("Choose dice to return: ");
-                    String returnLine = in.next();
-                    String[] s2 = returnLine.split(",");
-                    for (int i = 0; i < s2.length; i++) {
-                        int value = Integer.parseInt(s2[i].trim());
-                        if (value >= 1 && value <= 6) {
-                            for (int j = 0; j < diceInhand.size(); j++) {
-                                IDie die = diceInhand.get(j);
-                                if (value == die.GetTulemus()) {
-                                    dice.add(die);
-                                    diceInhand.remove(die);
+                            } else {
+                                for (IDie die : diceInHand) {
+                                    if (value == die.GetTulemus()) {
+                                        dice.add(die);
+                                        diceInHand.remove(die);
+                                        continue diceLoop;
+                                    }
                                 }
                             }
                         }
@@ -97,12 +96,9 @@ public class Round implements IRound {
                 case 3:
                     /*List<IDie> allDice = new ArrayList<>();
                     allDice.addAll(dice);
-                    allDice.addAll(diceInhand);
+                    allDice.addAll(diceInHand);
 
-                    IDie[] allDiceArray = new IDie[dice.size() + diceInhand.size()];
-                    allDice.toArray(allDiceArray);
-
-                    currentPlayer.GetScoreBoard().GetOptions(allDiceArray);*/
+                    currentPlayer.GetScoreBoard().GetOptions((IDie[]) allDice.toArray());*/
                     inProgress = false;
                     break;
             }
@@ -111,7 +107,8 @@ public class Round implements IRound {
     }
 
     public void start(IPlayer player) {
-        this.diceInhand = new ArrayList<>();
+        rolls = 0;
+        this.diceInHand = new ArrayList<>();
         this.currentPlayer = player;
         List<IDie> dice = new ArrayList<>();
         for (int j = 0; j < 5; j++) {
