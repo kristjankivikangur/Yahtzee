@@ -24,7 +24,7 @@ public class Round implements IRound {
     }
 
     @Override
-    public void start(Map players) {
+    public void start(IPlayer player) {
 
     }
 }
