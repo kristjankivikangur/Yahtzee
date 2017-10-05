@@ -13,19 +13,19 @@ public class ScoreEmpty implements IScoreBoard {
     @Override
     public List<IScoreOption> GetOptions(IDie[] Dice) {
         options = new ArrayList<>();
-        options.add(new ScoreOptionConstructor("ones",-1));
-        options.add(new ScoreOptionConstructor("twos",-1));
-        options.add(new ScoreOptionConstructor("threes",-1));
-        options.add(new ScoreOptionConstructor("fours",-1));
-        options.add(new ScoreOptionConstructor("fives",-1));
-        options.add(new ScoreOptionConstructor("sixes",-1));
-        options.add(new ScoreOptionConstructor("Three of a kind",-1));
-        options.add(new ScoreOptionConstructor("Four of a kind",-1));
-        options.add(new ScoreOptionConstructor("Full House",-1));
-        options.add(new ScoreOptionConstructor("Small straight",-1));
-        options.add(new ScoreOptionConstructor("Large straight",-1));
-        options.add(new ScoreOptionConstructor("Chance",-1));
-        options.add(new ScoreOptionConstructor("Yahtzee",-1));
+        options.add(new ScoreOptionConstructor("ones",0));
+        options.add(new ScoreOptionConstructor("twos",0));
+        options.add(new ScoreOptionConstructor("threes",0));
+        options.add(new ScoreOptionConstructor("fours",0));
+        options.add(new ScoreOptionConstructor("fives",0));
+        options.add(new ScoreOptionConstructor("sixes",0));
+        options.add(new ScoreOptionConstructor("Three of a kind",0));
+        options.add(new ScoreOptionConstructor("Four of a kind",0));
+        options.add(new ScoreOptionConstructor("Full House",0));
+        options.add(new ScoreOptionConstructor("Small straight",0));
+        options.add(new ScoreOptionConstructor("Large straight",0));
+        options.add(new ScoreOptionConstructor("Chance",0));
+        options.add(new ScoreOptionConstructor("Yahtzee",0));
         return options;
     }
 
