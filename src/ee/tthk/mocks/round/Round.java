@@ -4,6 +4,7 @@ import ee.tthk.interfaces.IDie;
 import ee.tthk.interfaces.IPlayer;
 import ee.tthk.interfaces.IRound;
 
+import java.util.Map;
 import java.util.Random;
 
 /**
