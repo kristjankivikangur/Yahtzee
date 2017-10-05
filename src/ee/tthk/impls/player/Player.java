@@ -1,25 +1,23 @@
-package ee.tthk.mocks.player;
-
+package ee.tthk.impls.player;
 
 import ee.tthk.interfaces.IPlayer;
 import ee.tthk.interfaces.IScoreBoard;
-import ee.tthk.mocks.scoreboard.ScoreUpperLowerDoneHigh;
+import ee.tthk.mocks.scoreboard.ScoreEmpty;
 
-public class WinningPlayer implements IPlayer{
+
+public class Player implements IPlayer {
 
     private String PlayerName;
     private IScoreBoard playerScoreBoard;
-    private String name;
 
-    public WinningPlayer(){
-        playerScoreBoard = new ScoreUpperLowerDoneHigh();
+    public Player(){
+        playerScoreBoard = new ScoreEmpty();
 
     }
 
-
     @Override
-    public String SetName() {
-        return PlayerName = name;
+    public void SetName(String name) {
+        PlayerName = name;
     }
 
     @Override
@@ -31,6 +29,4 @@ public class WinningPlayer implements IPlayer{
     public IScoreBoard GetScoreBoard() {
         return playerScoreBoard;
     }
-
-
 }
