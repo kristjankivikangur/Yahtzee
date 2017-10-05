@@ -18,8 +18,8 @@ public class WinningPlayer implements IPlayer{
 
 
     @Override
-    public String SetName() {
-        return PlayerName = name;
+    public void SetName(String name) {
+        PlayerName=name;
     }
 
     @Override
