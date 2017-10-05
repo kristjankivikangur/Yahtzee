@@ -4,9 +4,6 @@ import ee.tthk.interfaces.*;
 import ee.tthk.mocks.player.Player;
 import ee.tthk.mocks.round.Round;
 
-/**
- * Created by opilane on 03.10.2017.
- */
 public class Game implements IGame {
     int CurrentPlayer = 0;
     int NrOfPlayers;
