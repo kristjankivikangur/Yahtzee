@@ -4,29 +4,27 @@ import ee.tthk.interfaces.IDie;
 import ee.tthk.interfaces.IScoreBoard;
 import ee.tthk.interfaces.IScoreOption;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by opilane on 03.10.2017.
  */
 public class ScoreBoard implements IScoreBoard{
     private List<IScoreOption>Available;
-    Map<String,Integer> Scores=new HashMap<String,Integer>();
+    LinkedHashMap<String, Integer> Scores = new LinkedHashMap<String, Integer>();
     public ScoreBoard(){
-        Scores.put("Ones",-1);
-        Scores.put("Twos",-1);
-        Scores.put("Threes",-1);
-        Scores.put("Fours",-1);
-        Scores.put("Fives",-1);
-        Scores.put("Sixes",-1);
-        Scores.put("ThreeOfAKind",-1);
-        Scores.put("FourOfAKind",-1);
-        Scores.put("FullHouse",-1);
-        Scores.put("SmallStraight",-1);
-        Scores.put("LargeStraight",-1);
-        Scores.put("Yahtzee",-1);
+        Scores.put(ScoreNames.ONES,30);
+        Scores.put(ScoreNames.TWOS,30);
+        Scores.put(ScoreNames.THREES,30);
+        Scores.put(ScoreNames.FOURS,30);
+        Scores.put(ScoreNames.FIVES,30);
+        Scores.put(ScoreNames.SIXES,30);
+        Scores.put(ScoreNames.THREEOFAKIND,30);
+        Scores.put(ScoreNames.FOUROFAKIND,30);
+        Scores.put(ScoreNames.FULLHOUSE,30);
+        Scores.put(ScoreNames.SMALLSTRAIGHT,30);
+        Scores.put(ScoreNames.LONGSTRAIGHT,30);
+        Scores.put(ScoreNames.YAHTZEE,30);
     }
 
 
@@ -46,46 +44,44 @@ public class ScoreBoard implements IScoreBoard{
     }
 
     @Override
-    public void UsersChoice(int line) {
+    public void UsersChoice(int line)
+    {
 
     }
 
     @Override
     public int UpperScoreBoard() {
-        /*int UpperScoreTemp = Ones+Twos+Threes+Fours+Fives+Sixes;
-        if(UpperScoreTemp >= 63)
-        {
-            return UpperScoreTemp+50;
-        }
-        return UpperScoreTemp;*/
-
         Integer UpperSum = 0;
-        for (Integer j : Scores.values())
-        {
-            UpperSum += j;
-            if (UpperSum >= 63)
-            {
-                return UpperSum + 50;
-            }
-            return UpperSum;
+        List<Integer> ScoreValueList = new ArrayList<Integer>(Scores.values());
+        for(Integer i = 0; i < 6; i++){
+            UpperSum+=ScoreValueList.get(i);
         }
+
+        if (UpperSum >= 63)
+        {
+            UpperSum += 50;
+        }
+        System.out.println("Upper score: "+UpperSum);
         return UpperSum;
     }
 
     @Override
     public int LowerScoreBoard()
     {
+        List<Integer> ScoreValueList = new ArrayList<Integer>(Scores.values());
         Integer LowerSum = 0;
-        for (Integer k : Scores.values())
-        {
-            LowerSum += k;
+        for(Integer i = 6; i < 12; i++){
+            LowerSum+=ScoreValueList.get(i);
         }
+        System.out.println("Lower score: "+LowerSum);
         return LowerSum;
     }
 
     @Override
     public int GrandTotal()
     {
-        return UpperScoreBoard() + LowerScoreBoard();
+        Integer TotalScore=UpperScoreBoard()+LowerScoreBoard();
+        System.out.println("Total score: "+TotalScore);
+        return TotalScore;
     }
 }
