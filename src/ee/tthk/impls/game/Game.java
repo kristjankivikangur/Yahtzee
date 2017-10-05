@@ -50,6 +50,6 @@ public class Game implements IGame {
                 name = players[i].GetName();
             }
         }
-        System.out.println(name + " Võittis!!");
+        System.out.println(name + " võitis!!");
     }
 }
