@@ -1,5 +1,7 @@
 package ee.tthk.interfaces;
 
+import java.util.Map;
+
 /**
  * Created by opilane on 25.09.2017.
  */
@@ -24,5 +26,5 @@ public interface IGame {
      * Chooses the winner of the game after all the rounds have been played
      * @param players - An array of player
      */
-    void ChooseWinner(IPlayer[] players);
+    void ChooseWinner();
 }
