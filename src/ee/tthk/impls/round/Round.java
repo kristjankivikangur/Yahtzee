@@ -62,16 +62,16 @@ public class Round implements IRound {
                 case 1:
                     System.out.print("Choose dice to keep: ");
                     String keepLine = in.next();
-                    String[] s = keepLine.split(", ");
-                    for (int i = 0; i < s.length; i++) {
-                        int value = Integer.parseInt(s[i]);
+                    String[] s = keepLine.split(",");
+                    test: for (int i = 0; i < s.length; i++) {
+                        int value = Integer.parseInt(s[i].trim());
                         if (value >= 1 && value <= 6) {
                             for (int j = 0; j < dice.size(); j++) {
                                 IDie die = dice.get(j);
                                 if (value == die.GetTulemus()) {
                                     diceInhand.add(die);
                                     dice.remove(die);
-                                    continue;
+                                    continue test;
                                 }
                             }
                         }
@@ -80,9 +80,9 @@ public class Round implements IRound {
                 case 2:
                     System.out.print("Choose dice to return: ");
                     String returnLine = in.next();
-                    String[] s2 = returnLine.split(", ");
+                    String[] s2 = returnLine.split(",");
                     for (int i = 0; i < s2.length; i++) {
-                        int value = Integer.parseInt(s2[i]);
+                        int value = Integer.parseInt(s2[i].trim());
                         if (value >= 1 && value <= 6) {
                             for (int j = 0; j < diceInhand.size(); j++) {
                                 IDie die = diceInhand.get(j);
@@ -95,6 +95,14 @@ public class Round implements IRound {
                     }
                     break;
                 case 3:
+                    /*List<IDie> allDice = new ArrayList<>();
+                    allDice.addAll(dice);
+                    allDice.addAll(diceInhand);
+
+                    IDie[] allDiceArray = new IDie[dice.size() + diceInhand.size()];
+                    allDice.toArray(allDiceArray);
+
+                    currentPlayer.GetScoreBoard().GetOptions(allDiceArray);*/
                     inProgress = false;
                     break;
             }
