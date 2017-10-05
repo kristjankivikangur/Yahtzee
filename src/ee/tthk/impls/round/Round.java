@@ -5,6 +5,8 @@ import ee.tthk.interfaces.IDie;
 import ee.tthk.interfaces.IPlayer;
 import ee.tthk.interfaces.IRound;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -12,10 +14,10 @@ import java.util.Scanner;
  */
 public class Round implements IRound {
 
-    private IDie[] diceInhand;
+    private List<IDie> diceInhand;
     private IPlayer currentPlayer;
 
-    public void roll(IDie[] dice)
+    public void roll(List<IDie> dice)
     {
         if (dice == null) {
             return;
@@ -23,25 +25,26 @@ public class Round implements IRound {
         if (currentPlayer == null) {
             return;
         }
-        for (int i = 0; i < dice.length; i++)
+        for (int i = 0; i < dice.size(); i++)
         {
-            dice[i].Roll();
+            dice.get(i).Roll();
         }
     }
 
-    public void keepDice(IDie[] dice)
+    public void keepDice(List<IDie> dice)
     {
-        while (true) {
+        boolean inProgress = true;
+        while (inProgress) {
             System.out.print("The dice are: ");
-            for (int i = 0; i < dice.length; i++) {
-                System.out.print(dice[i].GetTulemus() + ", ");
+            for (int i = 0; i < dice.size(); i++) {
+                System.out.print(dice.get(i).GetTulemus() + ", ");
             }
             System.out.print("\n");
 
             System.out.print("Your dice are: ");
-            for (int i = 0; i < diceInhand.length; i++) {
-                if (diceInhand[i] != null) {
-                    System.out.print(diceInhand[i].GetTulemus() + ", ");
+            for (int i = 0; i < diceInhand.size(); i++) {
+                if (diceInhand.get(i) != null) {
+                    System.out.print(diceInhand.get(i).GetTulemus() + ", ");
                 }
             }
             System.out.print("\n");
@@ -60,39 +63,53 @@ public class Round implements IRound {
                     System.out.print("Choose dice to keep: ");
                     String keepLine = in.next();
                     String[] s = keepLine.split(", ");
-                    int[] choices = new int[s.length];
-                    for (int i = 0; i < choices.length; i++) {
+                    for (int i = 0; i < s.length; i++) {
                         int value = Integer.parseInt(s[i]);
                         if (value >= 1 && value <= 6) {
-                            for (int j = 0; j < dice.length; j++) {
-                                if (value == dice[j].GetTulemus()) {
-                                    choices[i] = value;
+                            for (int j = 0; j < dice.size(); j++) {
+                                IDie die = dice.get(j);
+                                if (value == die.GetTulemus()) {
+                                    diceInhand.add(die);
+                                    dice.remove(die);
                                     continue;
                                 }
                             }
                         }
                     }
-
-                    for (int i : choices) {
-                        System.out.println("Kept: " + i);
-                    }
                     break;
                 case 2:
+                    System.out.print("Choose dice to return: ");
+                    String returnLine = in.next();
+                    String[] s2 = returnLine.split(", ");
+                    for (int i = 0; i < s2.length; i++) {
+                        int value = Integer.parseInt(s2[i]);
+                        if (value >= 1 && value <= 6) {
+                            for (int j = 0; j < diceInhand.size(); j++) {
+                                IDie die = diceInhand.get(j);
+                                if (value == die.GetTulemus()) {
+                                    dice.add(die);
+                                    diceInhand.remove(die);
+                                }
+                            }
+                        }
+                    }
                     break;
                 case 3:
+                    inProgress = false;
                     break;
             }
+            System.out.println(" ");
         }
     }
 
     public void start(IPlayer player) {
-        this.diceInhand = new IDie[5];
+        this.diceInhand = new ArrayList<>();
         this.currentPlayer = player;
-        for (int i = 0; i < 1; i++) {
-            IDie[] dice = new IDie[5];
-            for (int j = 0; j < dice.length; j++) {
-                dice[j] = new Die();
-            }
+        List<IDie> dice = new ArrayList<>();
+        for (int j = 0; j < 5; j++) {
+            dice.add(new Die());
+        }
+        for (int i = 0; i < 3; i++) {
             roll(dice);
             keepDice(dice);
         }

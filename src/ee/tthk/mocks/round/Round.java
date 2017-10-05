@@ -4,6 +4,7 @@ import ee.tthk.interfaces.IDie;
 import ee.tthk.interfaces.IPlayer;
 import ee.tthk.interfaces.IRound;
 
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -13,12 +14,12 @@ public class Round implements IRound {
 
 
     @Override
-    public void roll(IDie[] dice) {
+    public void roll(List<IDie> dice) {
 
     }
 
     @Override
-    public void keepDice(IDie[] dice) {
+    public void keepDice(List<IDie> dice) {
 
     }
 
