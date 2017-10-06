@@ -12,6 +12,9 @@ public class Game implements IGame {
 
     @Override
     public void StartGame(int NumberOfPlayers) {
+        if (NumberOfPlayers < 1){
+            NumberOfPlayers = 1;
+        }
         NrOfPlayers = NumberOfPlayers;
         players=new Player[NumberOfPlayers];
         for (int i = 0;i < NumberOfPlayers;i++){
