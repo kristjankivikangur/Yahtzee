@@ -3,14 +3,14 @@ package ee.tthk.impls.misiganes;
 import ee.tthk.interfaces.IDie;
 import ee.tthk.mocks.die.D5;
 import ee.tthk.mocks.scoreboard.ScoreUpperLowerDoneHigh;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
 class MisIganesTest {
     private MisIganes testobject;
-    @BeforeEach
+    @Before
     void setUp() {
         testobject=new MisIganes();
     }
