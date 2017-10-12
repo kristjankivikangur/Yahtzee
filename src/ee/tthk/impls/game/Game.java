@@ -21,7 +21,7 @@ public class Game implements IGame {
             players[i]=new Player();
             players[i].GetName();
         }
-        for (int i = 1; i <= 1; i++){
+        for (int i = 1; i <= 13; i++){
             ChangeRound();
         }
         ChooseWinner();
