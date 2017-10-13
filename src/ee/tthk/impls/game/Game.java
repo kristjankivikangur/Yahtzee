@@ -21,7 +21,7 @@ public class Game implements IGame {
             players[i]=new Player();
             players[i].GetName();
         }
-        for (int i = 13; i <= 13; i++){
+        for (int i = 1; i <= 13; i++){
             ChangeRound();
         }
         ChooseWinner();
@@ -29,12 +29,11 @@ public class Game implements IGame {
 
     @Override
     public void ChangeRound() {
-        if (CurrentPlayer < NrOfPlayers) {
+        while (CurrentPlayer < NrOfPlayers) {
             ChangePlayer();
-        } else {
-            CurrentPlayer = 1;
-            round.start(players[0]);
         }
+        CurrentPlayer = 1;
+        round.start(players[0]);
     }
 
     @Override
