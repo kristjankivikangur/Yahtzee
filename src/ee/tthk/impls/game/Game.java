@@ -17,10 +17,12 @@ public class Game implements IGame {
         }
         NrOfPlayers = NumberOfPlayers;
         players=new Player[NumberOfPlayers];
+        // All the players are created
         for (int i = 0;i < NumberOfPlayers;i++){
             players[i]=new Player();
             players[i].GetName();
         }
+        // The round gets changed until the 13th round
         for (int i = 1; i <= 13; i++){
             ChangeRound();
         }
@@ -29,16 +31,20 @@ public class Game implements IGame {
 
     @Override
     public void ChangeRound() {
+        // Until all the player have not played their current round the players get changed
         while (CurrentPlayer < NrOfPlayers) {
             ChangePlayer();
         }
+        // Changing to the first player
         CurrentPlayer = 1;
         round.start(players[0]);
     }
 
     @Override
     public void ChangePlayer() {
+        // Starting the round with the current player
         round.start(players[CurrentPlayer]);
+        // Changing the player
         CurrentPlayer+=1;
     }
 
@@ -46,12 +52,14 @@ public class Game implements IGame {
     public void ChooseWinner() {
         int highestScore = 0;
         String name = "";
+        // Checking every player that who has the highest score
         for (int i = 0; i < NrOfPlayers; i++){
             if (players[i].GetScoreBoard().GrandTotal() > highestScore){
                 highestScore = players[i].GetScoreBoard().GrandTotal();
                 name = players[i].GetName();
             }
         }
+        // Giving out the winner
         System.out.println(name + " võitis!!");
     }
 }
